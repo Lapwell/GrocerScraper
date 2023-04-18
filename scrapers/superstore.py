@@ -11,7 +11,7 @@ BASE_URL = "https://www.realcanadiansuperstore.ca/"
 MAIN_PAGE_TARGET = "primary-nav__list__item.primary-nav__list__item--with-children"
 SUB_PAGES_TARGET= "product-grid__results__products"
 COOKIES = {"name": "last_selected_store", "value": "1527"}
-DRIVER_OPTIONS = []
+DRIVER_OPTIONS = ["--headless"]
 DRIVER_PREFERENCES = [("permissions.default.image", 2), ("geo.enabled", True)]  #Preference 0 is for diabling images on webpages.
 
 #Lists
