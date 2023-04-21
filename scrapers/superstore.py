@@ -35,9 +35,9 @@ for item in food_element:
 
 # y = len(links) - 2
 # while y > 0:
-#     links.pop()
-#     y -= 1
-
+    # links.pop()
+    # y -= 1
+#
 loop = 0
 for item in links:
     item = str(item)
@@ -73,9 +73,12 @@ for products in target_elements:
             temp_list.append(brand.get_text())
         if not isinstance(price, type(None)):
             temp_list.append(price.get_text())
+        for item in temp_list:
+            item.replace('"', '')
         food_list[-1].append(temp_list)
 
 
 with open("output.csv", "w", newline="") as f:
     writer = csv.writer(f, delimiter="\n")
-    writer.writerows(food_list)
+    writer.writerows(str(food_list).format('"', ''))
+    writer.close()
