@@ -27,7 +27,7 @@ class PageManager():
         self.driver.refresh()
         print("Waiting")
         #Wait for the browser to load. The program waits until an element with a specific ID
-        element_present = EC.presence_of_element_located((By.CLASS_NAME, self.wait_target))
+        element_present = EC.presence_of_element_located((By.CSS_SELECTOR, self.wait_target))
         WebDriverWait(self.driver, 30).until(element_present)
         sleep(4)
         print("Done Waiting")

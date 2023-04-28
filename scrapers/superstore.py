@@ -8,8 +8,8 @@ import csv
 #Defining constants
 BASE_URL = "https://www.realcanadiansuperstore.ca/"
 #The xpaths are for making sure their relevant pages load.
-MAIN_PAGE_TARGET = "primary-nav__list__item.primary-nav__list__item--with-children"
-SUB_PAGES_TARGET= "product-grid__results__products"
+MAIN_PAGE_TARGET = "ul.primary-nav__list:nth-child(1) > li:nth-child(1) > ul:nth-child(2)"
+SUB_PAGES_TARGET= ".product-tile-group__list"
 COOKIES = {"name": "last_selected_store", "value": "1527"}
 DRIVER_OPTIONS = ["--headless"]
 DRIVER_PREFERENCES = [("permissions.default.image", 2), ("geo.enabled", True)]  #Preference 0 is for diabling images on webpages.
@@ -78,7 +78,7 @@ for products in target_elements:
         food_list[-1].append(temp_list)
 
 
-with open("output.csv", "w", newline="") as f:
+with open("superstore_output.csv", "w", newline="") as f:
     writer = csv.writer(f, delimiter="\n")
     writer.writerows(str(food_list).format('"', ''))
     writer.close()
